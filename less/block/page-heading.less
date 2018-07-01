@@ -1,0 +1,65 @@
+.page-heading__wrapper {
+    .container;
+    border: 2px dashed blue;
+}
+.page-heading__title {
+    border: 2px dashed red;
+    font-size: 27px;
+    line-height: 30px;
+    margin: 0;
+    padding-top:65px;
+    padding-bottom: 120px;
+    text-align: center;
+}
+
+.offers-list {
+    border: 2px dashed green;
+    display: flex;
+    flex-wrap: wrap;
+    .no-ulstyle;
+}
+
+.offers-list__item {
+    border: 2px dashed gold;
+    box-sizing: border-box;
+    padding: 25px 30px;
+    margin: 0 -30px;
+    width: 320px
+}
+.offers-list__link {
+    text-decoration: none;
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    width: 130px;
+    border: 2px dashed black;
+}
+
+@media @tablet-widths {
+    .page-heading__title {
+        font-size: 43px;
+        line-height: 50px;
+        padding-top: 100px;
+        padding-bottom: 360px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .offers-list__item {
+        width: 50%;
+        margin: 0;
+    }
+
+    .offers-list__link {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+@media @desktop-widths {
+    .page-heading__title {
+        font-size: 53px;
+        line-height: 57px;
+
+    }
+}

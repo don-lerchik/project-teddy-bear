@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     watch: {
       style: {
         files: ["less/**/*.less"],
-        task: ["less","postcss"]
+        tasks: ["less" , "postcss"]
       }
     },
     browserSync: {
@@ -49,5 +49,5 @@ module.exports = function(grunt) {
       }
     }
   })
-  grunt.registerTask("serve", ["browserSync", "watch"]);
+   grunt.registerTask("serve", ["browserSync", "watch" ]);
 }

@@ -1,0 +1,125 @@
+.main-nav__wrapper {
+    .container;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.main-nav__toggle {
+    position: absolute;
+    top:0px;
+    right:0px;
+    border:2px solid red;
+}
+
+.main-nav__list {
+    .no-ulstyle;
+}
+
+.main-nav__list--promo-menu {
+    display: none;
+}
+.main-nav__item {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgb(148, 45, 148);
+}
+.main-nav__link {
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+    color: #000000;
+    border:2px solid red;
+}
+
+@media @tablet-widths {
+    .main-nav__wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .main-nav__list {
+        display: flex;
+        justify-content: flex-start;
+        &--logo {
+            order: 1;
+        }
+        &--site-menu {
+            order: 3;
+        }
+        &--user-menu {
+            order: 2;
+        }
+        &--promo-menu {
+            order: 4;
+            display: block;
+        }
+    }
+    .main-nav__item {
+        
+
+        &--logo {
+            
+            border: 2px solid blueviolet;
+        }
+
+        &--search {
+            
+            border: 2px solid red;
+        }
+        &--basket {
+            
+            padding-left:80px;
+            border: 2px solid blue;
+        }
+        &--new {
+            display: none;
+        }
+        &--sale {
+            display: none;
+        }
+    }
+    .main-nav__toggle{
+        display: none;
+        border: 2px solid pink;
+    }
+
+    @media @desktop-widths {  
+       .main-nav__list {
+            &--logo {
+                order: 2;
+            }
+            &--site-menu {
+                order: 1;
+            }
+            &--user-menu {
+                order: 3;
+            }
+            &--promo-menu {
+                order: 4;
+                display: flex;
+                justify-content: flex-start;
+                width: 100%;
+                border: 2px dashed gold;
+
+            }
+        }
+
+        .main-nav__item {
+            &--new {
+                display: block;
+            }
+            &--sale {
+                display: block;
+                margin-left: 45px;
+            }
+            &--delivery {
+                margin-right: 0px;
+                margin-left: auto;
+            }
+            
+        }
+    } 
+    
+}
