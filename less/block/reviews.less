@@ -4,6 +4,7 @@
 .reviews__title {
     font-size: 25px;
     line-height: 30px;
+    border: 2px solid violet;
 }
 .reviews__item {
     border: 2px solid green;
@@ -12,11 +13,13 @@
 .reviews__author {
     font-size: 17px;
     font-style: normal;
+    border: 2px solid hotpink;
 }
 .reviews__wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    border: 2px dashed black;
 }
 .reviews__arrow {
     width:50%;
@@ -29,8 +32,65 @@
 }
 
 @media @tablet-widths {
+    .reviews__inner {
+        padding-top: 80px;
+        padding-bottom: 45px;
+        border: 2px dashed brown;
+        position: relative;
+    }
     .reviews__title {
+        margin: 0;
         font-size: 43px;
         line-height: 50px;
+    }
+    .reviews__text {
+        font-size: 17px;
+        line-height: 30px;
+        border: 2px dashed aqua;
+    }
+    .reviews__author {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+    .reviews__author b {
+        width: 100%;
+    }
+    .reviews__write {
+        position: absolute;
+        width: 175px;
+        top: 100px;
+        right: 0;
+    }
+    .reviews__arrow {
+        position: absolute;
+        width: 90px;
+        bottom: 55px;
+
+        &--prev {
+            right: 90px;
+        }
+        &--next {
+            right: 0;
+        }
+    }
+}
+
+@media @desktop-widths {
+    .reviews__inner {
+        padding-left: 175px;
+        padding-right: 80px;
+        padding-bottom: 85px;
+    }
+
+    .reviews__title {
+        font-size: 53px;
+        line-height: 57px;
+    }
+    .reviews__write {
+        top: 105px;
+    }
+    .reviews__arrow {
+        bottom: 90px;
     }
 }
