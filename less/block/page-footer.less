@@ -1,5 +1,6 @@
 .page-footer__wrapper {
     .container;
+    padding: 0;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
@@ -47,15 +48,21 @@
     }
     .page-footer__logo {
         display: block;
+        width: 25%;
     }
     .page-footer__wrapper {
         flex-direction: row;
+        justify-content: space-between;
+    }
+    .page-footer__social {
+        width: 50%;
     }
     .social__list {
         padding: 0;
-        align-self: center;
+        justify-content: center;
     }
     .page-footer__copyrigth {
         padding: 0;
+        width: 25%;
     }
 }

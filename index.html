@@ -8,19 +8,20 @@
 </head>
 
 <body>
+
     <header class="page-header">
 
-        <nav class="main-nav">
+        <nav class="main-nav main-nav--opend  main-nav--nojs">
             <div class="main-nav__wrapper">
-                <button class="main-nav__toggle" type="button">Открыть меню</button>
-                <ul class="main-nav__list main-nav__list--logo">
-                    <li class="main-nav__item main-nav__item--logo">
+                <a class="main-nav__toggle" href="#">
+                    <span class="gamburger">Открыть меню</span>
+                </a>
+                <ul class="main-nav__list main-nav__list--site-menu">
+                    <li class="main-nav__item main-nav__item--logo main-nav__item--active">
                         <a class="main-nav__link main-nav__link--logo">
                             <img class="page-header__logo-image" src="img/logo-mobile.svg" width="90" height="40" alt="Магазин «Мишка»">
                         </a>
                     </li>
-                </ul>
-                <ul class="main-nav__list main-nav__list--site-menu">
                     <li class="main-nav__item main-nav__item--catalog">
                         <a class="main-nav__link main-nav__link--catalog" href="#">Каталог товаров</a>
                     </li>
@@ -31,10 +32,26 @@
 
                 <ul class="main-nav__list main-nav__list--user-menu">
                     <li class="main-nav__item main-nav__item--search">
-                        <a class="main-nav__link main-nav__link--search" href="#">Поиск по сайту</a>
+                        <form class="search" action="https://echo.htmlacademy.ru" method="post">
+                            <button class="search__submit" type="submit">
+                                <svg class="search__icon" width="17.6px" height="17.6px" fill="currentColor">
+                                    <use xlink:href="#icon-search"></use>
+                                </svg>
+                                <span class="visually-hidden">Найти</span>
+                            </button>
+                            <label class="visually-hidden" for="search">
+                                поле поиска по сайту
+                            </label>
+                            <input class="search__input" type="search" id="search" name="search" placeholder="Поиск по сайту">
+                        </form>
                     </li>
                     <li class="main-nav__item main-nav__item--basket">
-                        <a class="main-nav__link main-nav__link--basket" href="#">Корзина: пока пуста</a>
+                        <a class="main-nav__link main-nav__link--basket" href="#">
+                            <svg class="icon__basket" width="20" height="25">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
+                            </svg>
+                            Корзина: пока пуста
+                        </a>
                     </li>
                 </ul>
 
@@ -207,6 +224,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/script.min.js"></script>
 </body>
 
 </html>

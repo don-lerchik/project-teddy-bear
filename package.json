@@ -18,9 +18,12 @@
   "homepage": "https://github.com/don-lerchik/project-teddy-bear#readme",
   "devDependencies": {
     "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-postcss": "^0.9.0",
+    "grunt-svgstore": "^1.0.0",
     "load-grunt-tasks": "^4.0.0"
   },
   "dependencies": {
