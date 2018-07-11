@@ -10,15 +10,15 @@
     width: 260px;
     margin: 0 auto;
     padding: 0 30px;
-    border: 2px dashed blue;
 
-    @media @tablet-widths {
+    @media (min-width: @tablet-width) {
         width: 668px;
         padding: 0 50px;
     }
 
-    @media @desktop-widths {
+    @media (min-width: @desktop-width){
         width: 1050px;
+        padding: 0 50px;
     }
 }
 
@@ -27,7 +27,7 @@
     min-width: 320px;
     border: 2px dashed red;
 
-    @media @tablet-widths {
+    @media (min-width: @tablet-width) {
         width: 86%;
         max-width: 1050px;
         margin: 0 auto;

@@ -93,17 +93,27 @@ module.exports = function (grunt) {
         },
       }
     },
+    
     browserSync: {
       server: {
         bsFiles: {
-          src: ["*.html", "css/*.css"]
+          src: [
+            "*.html",
+            "css/*.css",
+            "img/*.svg",
+            "js/*.js"
+          ]
         },
         options: {
-          server: "."
+          server: ".",
+          watchTask: true,
+          notify: false,
+          open: true,
+          cors: true,
+          ui: false
         }
       }
-    }
-
+    },
   });
 
   grunt.registerTask("serve", ["browserSync", "watch"]);
@@ -115,7 +125,10 @@ module.exports = function (grunt) {
     'imagemin',
     'svgstore',
   ]);
-
-
-
+  grunt.registerTask('default', [
+    'js',
+    'img',
+    'browserSync',
+    'watch'
+  ]);
 }

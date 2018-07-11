@@ -8,41 +8,86 @@
 .about__list {
     .no-ulstyle;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 .about__item {
-    border: 2px solid red;
     line-height: 20px;
     font-weight: bold;
-    padding-top: 60px;
     padding-bottom: 25px;
     box-sizing: border-box;
+    flex-basis: 100%;
+}
+.about__icon {
+    &--ecology {
+        width: 30px;
+        height: 40px;
+    }
+    &--price {
+        width: 47px;
+        height: 27px;
+    }
+    &--like {
+        width: 34px;
+        height: 40px;
+    }
+    &--handmade {
+        width: 35px;
+        height: 35px;
+    }
+    &--patriot {
+        width: 55px;
+        height: 26px;
+    }
+    &--gift {
+        width: 32px;
+        height: 35px;
+        
+    }
 }
 
-@media @tablet-widths {
+@media (min-width: @tablet-width) {
     .about__heading {
         font-size: 43px;
         line-height: 50px;
     }
-
-    .about__list {
-        flex-direction: row;
-        flex-wrap: wrap;
-
-    }
     .about__item {
-        width: 50%;
+        flex-basis: 50%;
         font-size: 20px;
         line-height: 25px;
+
+        &--ecology {
+            order: 1;
+        }
+        &--handmade {
+            order: 2;
+        }
+        &--price {
+            order: 3;
+        }
+        &--patriot {
+            order: 4;
+        }
+        &--like {
+            order: 5;
+        }
+        &--gift {
+            order: 6;
+        }
+    }
+    .about__icon {
+        transform: scale(1.1);
     }
 
 }
-@media @desktop-widths {
+@media (min-width: @desktop-width) {
     .about__wrapper {
         padding: 0 175px;
     }
     .about__heading {
         font-size: 53px;
         line-height: 57px;
+    }
+    .about__icon {
+        transform: scale(1.2);
     }
 }

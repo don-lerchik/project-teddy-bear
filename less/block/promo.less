@@ -1,17 +1,24 @@
 .promo {
     .container;
-    
+    .clearfix;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 7px;
+        background-image: url(../img/bg-zigzag-line.svg);
+        background-position: 50% 0;
+        background-repeat: repeat-x;
+        background-size: 320px 7px;
+    }
 }
-
-.promo__heading {
-    border: 2px solid violet;
-}
-
 .promo__title {
     font-size: 25px;
     line-height: 30px;
     margin-bottom: 5px;
-    border: 2px solid orangered;
 }
 
 .promo__flag {
@@ -20,46 +27,51 @@
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 0;
-    border: 2px solid aqua;
+    color: #63d1bb;
 }
+
 .promo__wrapper {
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     position: relative;
     margin-bottom: 40px;
 }
-.promo__container-text {
-    border:2px dashed forestgreen;
-}
-
-.promo__price-container {
-    border: 2px solid gold;
-    order: 5;
-    text-align: center;
-
-}
 
 .promo__image {
-    border: 2px solid red;
     min-height: 315px;
     margin: 25px 0;
-
 }
 
 .promo__specification {
-    border: 2px solid blue;
     margin-top: 35px;
     width: 100%;
     border-collapse: collapse;
     line-height: 20px;
     text-align: left;
-}
-.promo__field {
-    font-weight: normal;
+    & tr {
+        border-bottom: 1px solid @border-color;
+    }
 }
 
-@media @tablet-widths {
+.promo__field, .promo__value {
+    padding: 10px 0;
+}
+
+.promo__price-container {
+    order: 1;
+    text-align: center;
+}
+
+.promo__price {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+@media (min-width: @tablet-width) {
+    .promo::before {
+        height: 17px;
+        background-size: 768px 17px;
+    }
     .promo__heading {
         display: flex;
         justify-content: space-between;
@@ -73,11 +85,10 @@
         margin: 0;
     }
     .promo__flag {
-        width: 130px; 
-        text-align: center; 
+        width: 130px;
+        text-align: center;
         margin: 0;
     }
-
     .promo__wrapper {
         margin-bottom: 60px;
     }
@@ -86,10 +97,8 @@
     }
     .promo__price-container {
         width: 290px;
-        margin-top:55px;
-        height: 115px;
+        margin-top: 55px;
     }
-
     .promo__description {
         margin: 0;
         font-size: 17px;
@@ -101,25 +110,30 @@
         right: 0;
         margin: 0;
         width: 335px;
-        height: 405px;;
+        height: 405px;
+        z-index: -1;
     }
-    .promo__field,
-    .promo__value {
-        padding: 5px 0;
+    .promo__price {
+        font-size: 20px;
     }
 }
-@media @desktop-widths {
+
+@media (min-width: @desktop-width) {
     .promo {
         margin-top: 70px;
+        &::before {
+            height: 23px;
+            background-size: 1050px 23px;
+        }
     }
     .promo__wrapper {
         margin-bottom: 80px;
     }
     .promo__heading {
-       justify-content: flex-start; 
+        justify-content: flex-start;
     }
     .promo__title {
-        order:1;
+        order: 1;
         font-size: 53px;
         line-height: 57px;
     }

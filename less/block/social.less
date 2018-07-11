@@ -1,0 +1,24 @@
+
+.social__list {
+    .no-ulstyle;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.social__link {
+    display: block;
+    padding: 20px;
+    color: #000000;
+    border-bottom: 1px solid #e5e5e5;
+    &:hover,&:focus {
+        color: #46c1ae;
+    }
+    &:active {
+        color: #bde3dd;
+    }
+}
+@media (min-width: @tablet-width) {
+    .social__link {
+        border: none;
+    }
+}
