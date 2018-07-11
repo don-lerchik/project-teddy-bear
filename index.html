@@ -22,7 +22,7 @@
                 </a>
                 <ul class="main-nav__list main-nav__list--logo-menu">
                     <li class="main-nav__item main-nav__item--logo main-nav__item--active">
-                        <a class="main-nav__link main-nav__link--logo">
+                        <a class="main-nav__link main-nav__link--logo" id="top-index-page">
                             <picture>
                                 <source media="(min-width: 1250px)" srcset="img/sprite_svg/logo-desktop.svg">
                                 <source media="(min-width: 768px)" srcset="img/sprite_svg/logo-tablet.svg">
@@ -33,7 +33,7 @@
                 </ul>
                 <ul class="main-nav__list main-nav__list--site-menu">
                     <li class="main-nav__item main-nav__item--catalog">
-                        <a class="main-nav__link main-nav__link--catalog" href="#">Каталог товаров</a>
+                        <a class="main-nav__link main-nav__link--catalog" href="catalog.html">Каталог товаров</a>
                     </li>
                     <li class="main-nav__item main-nav__item--order">
                         <a class="main-nav__link main-nav__link--order" href="#">Вязание на заказ</a>
@@ -87,7 +87,7 @@
     </header>
     <main class="page-main">
 
-        <section class="page-heading">
+        <section class="page-heading page-heading--index">
             <div class="page-heading__wrapper">
                 <h2 class="page-heading__title">Милые штуки ручной работы&nbsp;для&nbsp;дома</h2>
                 <ul class="page-heading__list">
@@ -256,7 +256,7 @@
     <footer class="page-footer">
         <div class="page-footer__wrapper">
 
-            <a href="#" class="page-footer__logo">
+            <a href="#top-index-page" class="page-footer__logo">
                 <svg class="page-footer__icon page-footer__icon--logo" width="100" height="35" fill="#000000">
                     <use xlink:href="#logo-footer"></use>
                 </svg>
