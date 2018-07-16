@@ -1,0 +1,33 @@
+.icon__basket {
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    fill: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &--main {
+        top: 25px;
+        left: 25px;
+
+        @media (min-width:  @tablet-width) {
+            top: 30px;
+        }
+
+    }
+
+    &--product {
+        top:17px;
+        right: 0;
+        
+        @media (min-width:  @tablet-width) {
+            top: 20px;
+        }
+
+    }
+    &:hover, &:focus {
+        fill: #6dd4bf;
+    }
+    &:active {
+        fill: #d0f1ea;
+    }
+}

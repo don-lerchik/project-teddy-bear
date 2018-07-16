@@ -59,7 +59,7 @@
                     </li>
                     <li class="main-nav__item main-nav__item--basket">
                         <a class="main-nav__link main-nav__link--basket" href="#">
-                            <svg class="icon__basket" width="20" height="25">
+                            <svg class="icon__basket icon__basket--main" width="20" height="25">
                                 <use xlink:href="#icon-cart"></use>
                             </svg>
                             Корзина: пока пуста
@@ -94,7 +94,15 @@
                 <li class="catalog__item product">
                     <div class="product__image">
                         <a class="product__link product__link--item-hare" href="#">
-                            <img src="#" alt="Зайчик-попрыгайчик">
+                            <picture>
+                                <source type="image/webp" media="(min-width: 1250px)" srcset="img/photo-hare-desktop@1x.webp 1x, img/photo-hare-desktop@2x.webp 2x">
+                                <source type="image/webp" media="(min-width: 768px)" srcset="img/photo-hare-tablet@1x.webp 1x, img/photo-hare-tablet@2x.webp 2x">
+                                <source type="image/webp" srcset="img/photo-hare-mobile@1x.webp 1x, img/photo-hare-mobile@2x.webp 2x">
+
+                                <source media="(min-width: 1250px)" srcset="img/photo-hare-desktop@1x.jpg 1x, img/photo-hare-desktop@2x.jpg 2x">
+                                <source media="(min-width: 768px)" srcset="img/photo-hare-tablet@1x.jpg 1x, img/photo-hare-tablet@2x.jpg 2x">
+                                <img class="product__pic" src="img/photo-hare-mobile@1x.jpg" srcset="img/photo-hare-mobile@2x.jpg 2x" alt="Зайчик-попрыгайчик">
+                            </picture>
                         </a>
                     </div>
                     <div class="product__description">
@@ -104,14 +112,27 @@
                         <p class="product__properties">Рост 30 см, вес 200 г</p>
                         <div class="product__buy">
                             <b class="product__price">1 200 руб.</b>
-                            <a class="product__to-basket product__to-basket--item-hare" href="#">Купить</a>
+                            <a class="product__to-basket product__to-basket--item-hare" href="#">
+                                <svg class="icon__basket icon__basket--product" width="20" height="25">
+                                    <use xlink:href="#icon-cart"></use>
+                                </svg>
+                                <span class="visually-hidden">Купить</span>
+                            </a>
                         </div>
                     </div>
                 </li>
                 <li class="catalog__item product">
                     <div class="product__image">
                         <a class="product__link product__link--item-laundry" href="#">
-                            <img src="#" alt="Корзинка для белья">
+                            <picture>
+                                <source type="image/webp" media="(min-width: 1250px)" srcset="img/photo-bowl-desktop@1x.webp 1x, img/photo-bowl-desktop@2x.webp 2x">
+                                <source type="image/webp" media="(min-width: 768px)" srcset="img/photo-bowl-tablet@1x.webp 1x, img/photo-bowl-tablet@2x.webp 2x">
+                                <source type="image/webp" srcset="img/photo-bowl-mobile@1x.webp 1x, img/photo-bowl-mobile@2x.webp 2x">
+
+                                <source media="(min-width: 1250px)" srcset="img/photo-bowl-desktop@1x.jpg 1x, img/photo-bowl-desktop@2x.jpg 2x">
+                                <source media="(min-width: 768px)" srcset="img/photo-bowl-tablet@1x.jpg 1x, img/photo-bowl-tablet@2x.jpg 2x">
+                                <img class="product__pic" src="img/photo-bowl-mobile@1x.jpg" srcset="img/photo-bowl-mobile@2x.jpg 2x" alt="Корзинка для белья">
+                            </picture>
                         </a>
                     </div>
                     <div class="product__description">
@@ -121,14 +142,27 @@
                         <p class="product__properties">Диаметр 15 см, высота 10 см</p>
                         <div class="product__buy">
                             <b class="product__price">1 690 руб.</b>
-                            <a class="product__to-basket product__to-basket--item-laundry" href="#">Купить</a>
+                            <a class="product__to-basket product__to-basket--item-hare" href="#">
+                                <svg class="icon__basket icon__basket--product" width="21" height="18">
+                                    <use xlink:href="#icon-cart"></use>
+                                </svg>
+                                <span class="visually-hidden">Купить</span>
+                            </a>
                         </div>
                     </div>
                 </li>
                 <li class="catalog__item product">
                     <div class="product__image">
                         <a class="product__link product__link--item-biglaundry-toy" href="#">
-                            <img src="#" alt="Большая корзинка для игрушек">
+                            <picture>
+                                <source type="image/webp" media="(min-width: 1250px)" srcset="img/photo-toys-desktop@1x.webp 1x, img/photo-toys-desktop@2x.webp 2x">
+                                <source type="image/webp" media="(min-width: 768px)" srcset="img/photo-toys-tablet@1x.webp 1x, img/photo-toys-tablet@2x.webp 2x">
+                                <source type="image/webp" srcset="img/photo-toys-mobile@1x.webp 1x, img/photo-toys-mobile@2x.webp 2x">
+
+                                <source media="(min-width: 1250px)" srcset="img/photo-toys-desktop@1x.jpg 1x, img/photo-toys-desktop@2x.jpg 2x">
+                                <source media="(min-width: 768px)" srcset="img/photo-toys-tablet@1x.jpg 1x, img/photo-toys-tablet@2x.jpg 2x">
+                                <img class="product__pic" src="img/photo-toys-mobile@1x.jpg" srcset="img/photo-toys-mobile@2x.jpg 2x" alt="Большая корзинка для игрушек">
+                            </picture>
                         </a>
                     </div>
                     <div class="product__description">
@@ -138,7 +172,12 @@
                         <p class="product__properties">Диаметр 30 см, высота 30 см</p>
                         <div class="product__buy">
                             <b class="product__price">1 500 руб.</b>
-                            <a class="product__to-basket product__to-basket--item-biglaundry-toy" href="#">Купить</a>
+                            <a class="product__to-basket product__to-basket--item-hare" href="#">
+                                <svg class="icon__basket icon__basket--product" width="21" height="18">
+                                    <use xlink:href="#icon-cart"></use>
+                                </svg>
+                                <span class="visually-hidden">Купить</span>
+                            </a>
                         </div>
                     </div>
                 </li>
@@ -147,8 +186,18 @@
         <section class="video">
             <div class="video__wrapper">
                 <div class="video__image">
-                    <img src="#" alt="видео процесса производства">
-                    <button class="video__btn" type="button">смотреть видео</button>
+                    <picture>
+                        <source type="image/webp" media="(min-width: 1250px)" srcset="img/video-desktop@1x.webp 1x, img/video-desktop@2x.webp 2x">
+                        <source type="image/webp" media="(min-width: 768px)" srcset="img/video-tablet@1x.webp 1x, img/video-tablet@2x.webp 2x">
+                        <source type="image/webp" srcset="img/video-mobile@1x.webp 1x, img/video-mobile@2x.webp 2x">
+
+                        <source media="(min-width: 1250px)" srcset="img/video-desktop@1x.jpg 1x, img/video-desktop@2x.jpg 2x">
+                        <source media="(min-width: 768px)" srcset="img/img/video-tablet@1x.jpg. 1x, img/video-tablet@2x.jpg 2x">
+                        <img src="img/video-mobile@1x.jpg" srcset="img/video-mobile@2x.jpg 2x" alt="видео процесса производства">
+                    </picture>
+                    <a class="video__btn" href="#">
+                        <span class="visually-hidden">смотреть видео</span>
+                    </a>
                 </div>
                 <div class="video__description">
                     <h3 class="video__title">Процесс производства</h3>

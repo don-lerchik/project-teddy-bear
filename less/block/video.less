@@ -1,0 +1,132 @@
+.video {
+    .container;
+}
+
+.video__wrapper {
+    border: 1px solid @border-color;
+    position: relative;
+    padding-top: 95px;
+    margin-bottom: 60px;
+    &:hover, &:focus {
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+    &:active {
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+.video__image {
+    position: relative;
+}
+
+.video__btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100px;
+    height: 78px;
+    background-color: transparent;
+    background-image: url("../img/icon-play.svg");
+    background-repeat: no-repeat;
+    &:hover, &:focus {
+        transform: scale(1.2);
+    }
+    &:active {
+        transform: scale(0.8);
+    }
+}
+
+.video__image img {
+    display: block;
+}
+
+.video__title {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    padding: 25px;
+    padding-left: 90px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000000;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 35px;
+        height: 30px;
+        background-image: url("../img/sprite_svg/icon-video.svg");
+        background-repeat: no-repeat;
+    }
+}
+
+.video__description {
+    padding: 30px 35px;
+    &-text {
+        margin: 0;
+        margin-bottom: 24px;
+        font-size: 13px;
+        line-height: 24px;
+    }
+}
+
+@media (min-width: @tablet-width) {
+    .video__wrapper {
+        padding: 0;
+    }
+    .video__description {
+        padding: 0 43px;
+        padding-bottom: 45px;
+        &-text {
+            margin-bottom: 40px;
+            font-size: 15px;
+            line-height: 30px;
+        }
+    }
+    .video__title {
+        position: relative;
+        font-size: 20px;
+        padding: 35px;
+        padding-left: 65px;
+        &::before {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+    }
+}
+
+@media (min-width: @desktop-width) {
+    .video__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 100px;
+    }
+    .video__image {
+        flex-basis: 680px;
+    }
+    .video__description {
+        box-sizing: border-box;
+        flex-basis: 350px;
+        padding: 0 60px;
+    }
+    .video__title {
+        padding: 0;
+        padding-top: 90px;
+        padding-bottom: 40px;
+        &::before {
+            top: 40px;
+            margin: 0;
+        }
+    }
+}
