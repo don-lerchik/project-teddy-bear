@@ -42,7 +42,7 @@ window.addEventListener("click", function () {
                 return;
             }
         }
-    }
+    } 
     if (modalIcon) {
         for (var key in modalIcon) {
             if ((target == modalIcon[key]) || (target.parentNode == modalIcon[key])) {
@@ -53,18 +53,12 @@ window.addEventListener("click", function () {
             }
         }
     }
- /*    if (((target == modalBtn) || (target.parentNode == modalBtn)) || ((target == modalIcon) || (target.parentNode == modalIcon))) {
-        this.event.preventDefault();
-        modal.classList.add("modal--show");
-        overlay.classList.add("overlay--show");
-        return;
-    } */
     if ((target == modalClose) || (target.parentNode == modalClose)) {
         this.event.preventDefault();
         modal.classList.remove("modal--show");
         overlay.classList.remove("overlay--show");
         return;
-    } 
+    }
     if (target != navSearchNoclick) {
         navSearch.classList.remove("main-nav__item--search--opend");
         navSearch.classList.add("main-nav__item--search--closed");
