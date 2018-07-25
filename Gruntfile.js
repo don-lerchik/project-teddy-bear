@@ -1,22 +1,37 @@
 module.exports = function (grunt) {
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.loadNpmTasks('grunt-svgstore');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  require("load-grunt-tasks")(grunt);
   grunt.initConfig({
+    clean: {
+      build: ["build"]
+    },
+
+
+    copy: {
+      build: {
+        files: [{
+          expand: true,
+          src: [
+            "fonts/**/*.{woff,woff2}",
+            "img/**",
+            "js/**"
+          ],
+          dest: "build"
+        }]
+      }
+    },
+
+
     less: {
       style: {
         options: {
           paths: ["assets/css"]
         },
         files: {
-          "css/style.css": "less/style.less"
+          "build/css/style.css": "less/style.less"
         }
       }
     },
+
     postcss: {
       options: {
         processors: [
@@ -28,21 +43,51 @@ module.exports = function (grunt) {
               "last 2 Opera versions",
               "last 2 Edge versions"
             ]
+          }),
+          require("css-mqpacker")({
+            sort: true
           })
         ]
       },
       style: {
-        src: "css/*.css"
+        src: "build/css/*.css"
       }
 
     },
-    uglify: {
-      start: {
+
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
         files: {
-          'js/script.min.js': ['js/script.js']
+          "build/index.html": "index.html",
+          "build/catalog.html": "catalog.html",
+          "build/form.html": "form.html"
         }
       }
     },
+
+    csso: {
+      styles: {
+        options: {
+          report: 'gzip'
+        },
+        files: {
+          "build/css/style.min.css": ["css/style.css"]
+        }
+      }
+    },
+
+    uglify: {
+      start: {
+        files: {
+          'build/js/script.min.js': ['js/script.js']
+        }
+      }
+    },
+
     imagemin: {
       build: {
         options: {
@@ -50,10 +95,23 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['img/sprite_svg/*.svg']
+          src: ["img/**/*.{png,jpg,gif}"]
         }]
       }
     },
+
+    cwebp: {
+      images: {
+        options: {
+          q: 90
+        },
+        files: [{
+          expand: true,
+          src: ["build/img/**/*.{png,jpg}"]
+        }]
+      }
+    },
+
     svgstore: {
       options: {
         includeTitleElement: false,
@@ -66,46 +124,64 @@ module.exports = function (grunt) {
       },
       default: {
         files: {
-          'img/sprite.svg': ['img/sprite_svg/*.svg'],
+          'build/img/sprite.svg': ['build/img/sprite_svg/*.svg'],
         },
       },
     },
 
+    svgmin: {
+      default: {
+        files: [{
+          expand: true,
+          src: ["build/img/sprite_svg/*.svg"]
+        }]
+      }
+    },
+
     watch: {
+      html: {
+        files: ["*.html"],
+        tasks: ["html"]
+      },
       style: {
         files: ["less/**/*.less"],
         tasks: ["less", "postcss"]
       },
       scripts: {
-        files: ['js/*.js'],
-        tasks: ['js'],
+        files: ["js/*.js"],
+        tasks: ["js"],
         options: {
           spawn: false
         },
       },
-      images: {
-        files: [
-          'img/sprite_svg/*.svg'
-        ],
-        tasks: ['img'],
+      svg: {
+        files: ["img/sprite_svg/*.svg"],
+        tasks: ["svg"],
+        options: {
+          spawn: false
+        },
+      },
+      img: {
+        files: ["img/**/*.{png,jpg,gif}"],
+        tasks: ["img"],
         options: {
           spawn: false
         },
       }
     },
-    
+
     browserSync: {
       server: {
         bsFiles: {
           src: [
-            "*.html",
-            "css/*.css",
-            "img/*.svg",
-            "js/*.js"
+            "build/*.html",
+            "build/css/*.css",
+            "build/img/*.svg",
+            "build/js/*.js"
           ]
         },
         options: {
-          server: ".",
+          server: "build/",
           watchTask: true,
           notify: false,
           open: true,
@@ -113,21 +189,48 @@ module.exports = function (grunt) {
           ui: false
         }
       }
-    },
+    }
   });
 
-  grunt.registerTask("serve", ["browserSync", "watch"]);
-  grunt.registerTask('js', [
-    'uglify',
+
+  grunt.registerTask("js", [
+    "uglify",
+  ]);
+  grunt.registerTask("html", [
+    "htmlmin",
   ]);
 
-  grunt.registerTask('img', [
-    'imagemin',
-    'svgstore',
+  grunt.registerTask("svg", [
+    "svgmin",
+    "svgstore"
   ]);
+
+  grunt.registerTask("img", [
+    "imagemin",
+    "cwebp"
+  ]);
+
+  grunt.registerTask("serve", [
+    "browserSync",
+    "watch"
+  ]);
+
+  grunt.registerTask("build", [
+    "clean",
+    "copy",
+    "less",
+    "postcss",
+    "html",
+    "csso",
+    "js",
+    "img",
+    "svg"
+  ]);
+
   grunt.registerTask('default', [
     'js',
     'img',
+    'svg',
     'browserSync',
     'watch'
   ]);
