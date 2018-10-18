@@ -16,13 +16,13 @@ navMain.classList.remove("main-nav--opened");
 
 window.addEventListener("click", function () {
     var target = event.target;
-    if ((target == navSearchLink) || (target.parentNode == navSearchLink)) {
+    if ((target === navSearchLink) || (target.parentNode === navSearchLink)) {
         this.event.preventDefault();
         navSearch.classList.remove("main-nav__item--search--closed");
         navSearch.classList.add("main-nav__item--search--opend");
         return;
     }
-    if ((target == navToggle) || (target.parentNode == navToggle)) {
+    if ((target === navToggle) || (target.parentNode === navToggle)) {
         this.event.preventDefault();
         if (navMain.classList.contains("main-nav--closed")) {
             navMain.classList.remove("main-nav--closed");
@@ -35,7 +35,7 @@ window.addEventListener("click", function () {
     }
     if (modalBtn) {
         for (var key in modalBtn) {
-            if ((target == modalBtn[key]) || (target.parentNode == modalBtn[key])) {
+            if ((target === modalBtn[key]) || (target.parentNode === modalBtn[key])) {
                 this.event.preventDefault();
                 modal.classList.add("modal--show");
                 overlay.classList.add("overlay--show");
@@ -45,7 +45,7 @@ window.addEventListener("click", function () {
     } 
     if (modalIcon) {
         for (var key in modalIcon) {
-            if ((target == modalIcon[key]) || (target.parentNode == modalIcon[key])) {
+            if ((target === modalIcon[key]) || (target.parentNode === modalIcon[key])) {
                 this.event.preventDefault();
                 modal.classList.add("modal--show");
                 overlay.classList.add("overlay--show");
@@ -53,7 +53,7 @@ window.addEventListener("click", function () {
             }
         }
     }
-    if ((target == modalClose) || (target.parentNode == modalClose)) {
+    if ((target === modalClose) || (target.parentNode === modalClose)) {
         this.event.preventDefault();
         modal.classList.remove("modal--show");
         overlay.classList.remove("overlay--show");
@@ -66,53 +66,4 @@ window.addEventListener("click", function () {
 
 })
 
-
-
-    // http://osvaldas.info/caching-svg-sprite-in-localstorage
-
-    ; (function (window, document) {
-        'use strict';
-
-        var file = 'img/sprite.svg',
-            revision = 1;
-
-        if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect)
-            return true;
-
-        var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
-            request,
-            data,
-            insertIT = function () {
-                document.body.insertAdjacentHTML('afterbegin', data);
-            },
-            insert = function () {
-                if (document.body) insertIT();
-                else document.addEventListener('DOMContentLoaded', insertIT);
-            };
-
-        if (isLocalStorage && localStorage.getItem('inlineSVGrev') == revision) {
-            data = localStorage.getItem('inlineSVGdata');
-            if (data) {
-                insert();
-                return true;
-            }
-        }
-
-        try {
-            request = new XMLHttpRequest();
-            request.open('GET', file, true);
-            request.onload = function () {
-                if (request.status >= 200 && request.status < 400) {
-                    data = request.responseText;
-                    insert();
-                    if (isLocalStorage) {
-                        localStorage.setItem('inlineSVGdata', data);
-                        localStorage.setItem('inlineSVGrev', revision);
-                    }
-                }
-            }
-            request.send();
-        }
-        catch (e) { }
-
-    }(window, document));
+   
