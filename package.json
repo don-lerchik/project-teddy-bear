@@ -26,7 +26,7 @@
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-less": "^2.0.0",
-    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-csso": "^2.2.1",
     "grunt-cwebp": "^2.1.1",

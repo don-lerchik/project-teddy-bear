@@ -12,8 +12,7 @@ module.exports = function (grunt) {
           expand: true,
           src: [
             "fonts/**/*.{woff,woff2}",
-            "img/**",
-            "js/**"
+            "img/**"
           ],
           dest: "build"
         }]
@@ -145,7 +144,7 @@ module.exports = function (grunt) {
       },
       style: {
         files: ["less/**/*.less"],
-        tasks: ["less", "postcss"]
+        tasks: ["less", "postcss","csso"]
       },
       scripts: {
         files: ["js/*.js"],
